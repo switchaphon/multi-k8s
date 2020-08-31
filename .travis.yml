@@ -16,9 +16,9 @@ before_install:
     - gcloud config set compute/zone asia-southeast1-b
     - gcloud container clusters get-credentials multi-cluster
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - docker build -t switchaphon/reac-test -f ./client/Dockerfile.dev
+    - docker build -t switchaphon/react-test -f ./client/Dockerfile.dev ./client
 script:
-    - docker run -e CI=true switchaphon/docker-react npm test
+    - docker run -e CI=true switchaphon/react-test npm test
 deploy:
     provider: script
     script: bash ./deploy.sh 
