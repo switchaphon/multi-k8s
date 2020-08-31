@@ -15,7 +15,7 @@ docker push switchaphon/multi-worker:$SHA
 #Apply k8s configuration files in folder ./k8s
 kubectl -f ./k8s
 
-#Deployment format: kubectl set image deployment/<deployment-config.file> <container-name>=<docker-hub-id>/<image-name>:<tag-version>
+#Deployment k8s deployment. Format: kubectl set image deployment/<deployment-config.file> <container-name>=<docker-hub-id>/<image-name>:<tag-version>
 kubectl set image deployments/server-deployment server=switchaphon/multi-server:$SHA
 kubectl set image deployments/client-deployment client=switchaphon/multi-client:$SHA
 kubectl set image deployments/worker-deployment worker=switchaphon/multi-worker:$SHA
